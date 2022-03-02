@@ -1,5 +1,7 @@
-# belly_button_biodiversity.github.io
-Interactive Web Visualizations Dashboard with Plotly
+# belly_button_biodiversity
+<a href="https://bakeralexan.github.io/belly_button_biodiversity/">Interactive Web Visualizations Dashboard with Plotly</a>
+<a href="https://bakeralexan.github.io/belly_button_biodiversity/">https://bakeralexan.github.io/belly_button_biodiversity/</a>
+
 # Plot.ly Homework - Belly Button Biodiversity
 
 ![Bacteria by filterforge.com](Images/bacteria.jpg)

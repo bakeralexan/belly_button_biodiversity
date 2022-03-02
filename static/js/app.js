@@ -7,6 +7,11 @@ function init() {
     names.forEach(sample => {
       selector.append("option").text(sample).property("value", sample);
     });
+      chartBuild(sample);
+      demographicBuild(sample);
+      gaugeBuild(sample);
+      console.log(`This is new sample: ${sample}`);
+    };
   });
 };
 init();
