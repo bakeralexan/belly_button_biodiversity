@@ -1,16 +1,15 @@
 function init() {
   // Use the D3 library to read in `samples.json`.
-  d3.json("../../samples.json").then(data => {
+  d3.json("samples.json").then(data => {
     // Create dropdown selection 
     let names = data.names;
-    let selector = d3.select("#selDataset");
-    names.forEach(sample => {
-      selector.append("option").text(sample).property("value", sample);
-    });
-    chartBuild(sample);
-    demographicBuild(sample);
-    gaugeBuild(sample);
-    console.log(`This is new sample: ${sample}`);
+    let dropDown = d3.select("#selDataset");
+    names.forEach(sample => {dropDown.append("option").text(sample).property("value", sample);});
+      let samples = dropDown.property("value");
+      chartBuild(samples);
+      demographicBuild(samples);
+      gaugeBuild(samples);
+      console.log(`This is new sample: ${samples}`);
 
   });
 };
@@ -18,13 +17,13 @@ init();
 
 function chartBuild(sample) {
   
-  d3.json("../../samples.json").then(data => {
+  d3.json("samples.json").then(data => {
     console.log(data);
     // Create a horizontal bar chart with a dropdown menu
     // to display the top 10 OTUs found in that individual.  
-    let samples = data.samples;
-    let arrayChart = samples.filter(item => item.id == sample);
-    let array1 = arrayChart[0]
+    let samplesID = data.samples;
+    let arrays = samplesID.filter(item => item.id == sample);
+    let array1 = arrays[0]
     let otuIds = array1.otu_ids;
     let otuLabels = array1.otu_labels;
     let sampleValues = array1.sample_values;
@@ -73,7 +72,7 @@ function chartBuild(sample) {
 // Display the sample metadata, i.e., an individual's demographic information.
 function demographicBuild(sample) {
   // Use the D3 library to read in `samples.json`.
-  d3.json("../../samples.json").then(data => {
+  d3.json("samples.json").then(data => {
     let demographics = data.metadata;
     console.log(demographics);
     let arrayDemo = demographics.filter(item => item.id == sample);
@@ -102,7 +101,7 @@ function demographicBuild(sample) {
 };
 
 function gaugeBuild(sample) {
-  d3.json("../../samples.json").then(data => {
+  d3.json("samples.json").then(data => {
     let gaugeData = data.metadata;
     let gaugeArray = gaugeData.filter(item => item.id == sample);
     let gaugeArray1 = gaugeArray[0];
